@@ -1,0 +1,10 @@
+#!/bin/sh
+# exec /opt/sublime_text/sublime_text "$@"
+
+CMD="LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so /opt/sublime_text/sublime_text"
+FILENAME=$1
+if [ -n "$1" ]
+then 
+  CMD=${CMD}" "`pwd`/$FILENAME
+fi
+eval $CMD
